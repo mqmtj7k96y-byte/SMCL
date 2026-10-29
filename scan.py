@@ -185,7 +185,7 @@ def send(chat, text):
 def main():
     if not TOKEN:
         sys.exit("TELEGRAM_TOKEN is not set")
-    if MANUALand ALLOWED:
+    if MANUAL and ALLOWED:
         for m in run_scan(): send(ALLOWED, m)
         return
     upd = tg("getUpdates", timeout=0).get("result", [])
