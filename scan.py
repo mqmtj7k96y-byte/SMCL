@@ -188,7 +188,9 @@ def main():
     if MANUAL and ALLOWED:
         for m in run_scan(): send(ALLOWED, m)
         return
+    print("bot:", tg("getMe")["result"]["username"])
     upd = tg("getUpdates", timeout=0).get("result", [])
+    print("updates received:", len(upd))
     if not upd: return
     tg("getUpdates", offset=upd[-1]["update_id"] + 1, timeout=0)  # mark as read
     want_scan = False
